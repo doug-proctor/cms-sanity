@@ -11,11 +11,12 @@ import Faqs from "@/app/components/Faqs"
 export default async function Page() {
   const about = await sanityFetch({ query: aboutQuery })
   const amenities = await sanityFetch({ query: amenitiesQuery }) as Amenity[]
+  const amenitiesSorted = amenities.sort((a, b) => a.order! - b.order!)
 
   return (
     <>
       <PageHeader image={about?.picture} title={about?.title} />
-      {amenities.map((amenity, index) => (
+      {amenitiesSorted.map((amenity, index) => (
         <MediaItem
           key={amenity._id}
           title={amenity.name}

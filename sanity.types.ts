@@ -744,7 +744,7 @@ export type TestimonialsQueryResult = Array<{
   comment: string | null;
 }>;
 // Variable: amenitiesQuery
-// Query: *[_type in ["amenity"] | order(name desc)]
+// Query: *[_type in ["amenity"] | order(order asc)]
 export type AmenitiesQueryResult = Array<{
   _id: string;
   _type: "amenity";
@@ -954,7 +954,7 @@ declare module "@sanity/client" {
     "*[_type in [\"settings\", \"cookie\", \"privacy\", \"accommodation\", \"about\"]]": LayoutQueryResult;
     "*[_type in [\"accommodation\"]][0]": AccommodationQueryResult;
     "*[_type in [\"testimonial\"]]{_id, name, picture, comment}": TestimonialsQueryResult;
-    "*[_type in [\"amenity\"] | order(name desc)]": AmenitiesQueryResult;
+    "*[_type in [\"amenity\"] | order(order asc)]": AmenitiesQueryResult;
     "*[_type in [\"highlight\"]]": HighlightsQueryResult;
     "*[_type in [\"settings\"]][0]": SettingsQueryResult;
     "*[_type in [\"privacy\"]][0]": PrivacyQueryResult;

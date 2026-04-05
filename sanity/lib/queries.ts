@@ -1,9 +1,10 @@
 import { defineQuery } from "next-sanity"
 
 export const layoutQuery = defineQuery(`*[_type in ["settings", "cookie", "privacy", "accommodation", "about"]]`)
+
 export const accommodationQuery = defineQuery(`*[_type in ["accommodation"]][0]`)
 export const testimonialsQuery = defineQuery(`*[_type in ["testimonial"]]{_id, name, picture, comment}`)
-export const amenitiesQuery = defineQuery(`*[_type in ["amenity"] | order(order asc)]`)
+export const amenitiesQuery = defineQuery(`*[_type in ["amenity"] | order(name desc)]`)
 export const highlightsQuery = defineQuery(`*[_type in ["highlight"]]`)
 export const settingsQuery = defineQuery(`*[_type in ["settings"]][0]`)
 export const privacyQuery = defineQuery(`*[_type in ["privacy"]][0]`)
